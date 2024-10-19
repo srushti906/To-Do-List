@@ -1,0 +1,100 @@
+@model ToDo
+
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit To-Do Item</h2>
+
+<div class="row alert alert-primary">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Hidden field for Id -->
+            <input asp-for="Id" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Details" class="control-label"></label>
+                <textarea asp-for="Details" class="form-control"></textarea>
+                <span asp-validation-for="Details" class="text-danger"></span>
+            </div>
+                <!--
+                     <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="datetime-local" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+                -->
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" type="datetime-local" readonly />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group form-check">
+                <label asp-for="IsDone" class="control-label"></label>
+                <input asp-for="IsDone" class="form-check-input" />
+                <span asp-validation-for="IsDone" class="text-danger"></span>
+            </div>
+
+            <!-- Priority Field -->
+            <div class="form-group">
+                <label asp-for="Priority" class="control-label"></label>
+                <select asp-for="Priority" class="form-control" asp-items="ViewBag.PriorityList"></select>
+                <span asp-validation-for="Priority" class="text-danger"></span>
+            </div>
+
+            <!-- Category Field -->
+            <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" />
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+
+            <!-- Reminder Date Field -->
+            <div class="form-group">
+                <label asp-for="ReminderDate" class="control-label"></label>
+                <input asp-for="ReminderDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="ReminderDate" class="text-danger"></span>
+            </div>
+
+            <!-- Tags Field -->
+            <div class="form-group">
+                <label asp-for="Tags" class="control-label"></label>
+                <input asp-for="Tags" class="form-control" placeholder="e.g., Work, Personal" />
+                <span asp-validation-for="Tags" class="text-danger"></span>
+            </div>
+
+            <!-- IsRecurring Field -->
+            <div class="form-group form-check">
+                <label asp-for="IsRecurring" class="control-label"></label>
+                <input asp-for="IsRecurring" class="form-check-input" />
+                <span asp-validation-for="IsRecurring" class="text-danger"></span>
+            </div>
+
+            <!-- RecurringInterval Field -->
+            <div class="form-group">
+                <label asp-for="RecurringInterval" class="control-label"></label>
+                <input asp-for="RecurringInterval" class="form-control" placeholder="Enter the interval in days" />
+                <span asp-validation-for="RecurringInterval" class="text-danger"></span>
+            </div>
+
+            <input type="submit" value="Update" class="btn btn-success" />
+        </form>
+    </div>
+</div>
+
+<a asp-action="Index" class="btn btn-primary mt-3">Back to List</a>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

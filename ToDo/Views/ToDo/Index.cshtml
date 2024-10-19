@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ToDo>
+
+
+<h2>To Do List</h2>
+<a asp-action="Create" class="btn btn-success mb-3">Create New</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="bg-warning">
+            <th>Title</th>
+            <th>Date</th>
+            <th>Is Done</th>
+            <th>Priority</th>
+            <th>Category</th>
+            <th>Reminder</th>
+            <th>Is Recurring</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model
+        .OrderBy(item => item.IsDone) // Incomplete tasks first
+        .ThenByDescending(item => item.Priority)) // Sort by Priority (High to Low)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Date.ToString("g")</td> <!-- Display Date in human-readable format -->
+                <td>
+                    @if (item.IsDone)
+                    {
+                        <span class="badge bg-success">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">No</span>
+                    }
+                </td>
+                <td>
+                    @if (item.Priority == 1)
+                    {
+                        <span class="badge bg-success">Low</span>
+                    }
+                    else if (item.Priority == 2)
+                    {
+                        <span class="badge bg-warning">Medium</span>
+                    }
+                    else if (item.Priority == 3)
+                    {
+                        <span class="badge bg-danger">High</span>
+                    }
+                </td>
+                <td>@item.Category</td>
+                <td>@item.ReminderDate?.ToString("g")</td> <!-- Optional reminder date -->
+                <td>
+                    @if (item.IsRecurring)
+                    {
+                        <span class="badge bg-info">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

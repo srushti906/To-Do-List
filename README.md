@@ -1,10 +1,13 @@
 To-Do List Project
 
-    This is a simple To-Do List application built using ASP.NET Core MVC, Entity Framework Core, and SQL Server. The project allows users to manage their tasks efficiently by providing features to create, view,       update, and delete tasks.
+    This is a simple To-Do List application built using ASP.NET Core MVC, Entity Framework Core, and SQL Server.
+    The project allows users to manage their tasks efficiently by providing features to create, view,update, and delete tasks.
 
  Project Purpose
 
-      The purpose of this project is to demonstrate how to build a web application using ASP.NET Core MVC and Entity Framework Core. It covers the implementation of CRUD (Create, Read, Update, Delete) operations       on a relational database (SQL Server), making it a helpful reference for beginners learning MVC patterns and database integration.
+      The purpose of this project is to demonstrate how to build a web application using ASP.NET Core MVC and Entity Framework Core. 
+      It covers the implementation of CRUD (Create, Read, Update, Delete) operations on a relational database (SQL Server), making it a 
+      helpful reference for beginners learning MVC patterns and database integration.
 
 Features
 

@@ -46,12 +46,13 @@ Getting Started
           }
           
           
-          3. Open the Package Manager Console in Visual Studio (or use the .NET CLI) and run the following command to apply migrations and create the database:
+          3. Open the Package Manager Console in Visual Studio (or use the .NET CLI) and run the following command
+             to apply migrations and create the database:
           
           Update-Database
 
 
- 3. Run the Application
+ 4. Run the Application
 
           Once the database is set up, you can run the application using one of the following methods:
           
@@ -63,8 +64,9 @@ Getting Started
 
           The application will start, and by default, it will be available at `https://localhost:5001` (or a similar port).
 
- 4. Access the Application
+ 5. Access the Application
 
-          Open a web browser and navigate to the URL provided by the terminal or Visual Studio. You will now see the homepage where you can manage your tasks (create, view, update, delete).
+          Open a web browser and navigate to the URL provided by the terminal or Visual Studio.
+          You will now see the homepage where you can manage your tasks (create, view, update, delete).
 
 

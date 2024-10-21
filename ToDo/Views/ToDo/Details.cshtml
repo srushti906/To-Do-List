@@ -83,6 +83,20 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RecurringInterval)
         </dd>
+
+        <dt class="col-sm-2">
+            Completion Percentage
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CompletionPercentage) % <!-- Display Completion Percentage -->
+        </dd>
+
+        <dt class="col-sm-2">
+            Estimated Duration
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EstimatedDuration) hrs <!-- Display Estimated Duration -->
+        </dd>
     </dl>
 </div>
 
